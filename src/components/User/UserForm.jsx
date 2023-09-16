@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./userform.scss";
+import { getValidTextArea, isValidAge } from "../../utils/base";
 
 const UserForm = ({
   users,
@@ -28,8 +29,6 @@ const UserForm = ({
       ? "VIEW USER"
       : "";
 
-  
-
   const onScrollHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -38,23 +37,42 @@ const UserForm = ({
   };
 
   const onChangeHandler = (e) => {
-    if(currentTask == 'view_user'){
+    if (currentTask == "view_user") {
       return;
     }
     let { name, value } = e.target;
-
-    setUserdata({
-      ...userData,
-      [name]: value,
-    });
+    console.log(name, value.length);
+    if(value.length === 0){
+      setUserdata({
+        ...userData,
+        [name] : ''
+      });
+      return;
+    }
+    if (name == "age" && isValidAge(value)) {
+      setUserdata({
+        ...userData,
+        age: value,
+      });
+    } else if (name == "hobbies" && value) {
+      setUserdata({
+        ...userData,
+        hobbies: getValidTextArea(value),
+      });
+    } else if (name != "age" && name != "hobbies") {
+      setUserdata({
+        ...userData,
+        [name]: value,
+      });
+    }
 
     // console.log("-> ", name, value);
   };
 
-  const handleClose = ()=>{
+  const handleClose = () => {
     setCurrentTask("");
     setCurrentId("");
-  }
+  };
 
   useEffect(() => {
     if (!currentTask || currentTask == "") {
