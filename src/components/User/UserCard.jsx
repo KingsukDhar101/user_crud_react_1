@@ -9,7 +9,17 @@ const UserCard = ({ user, deleteUser, viewUser, editUser }) => {
       <div className="usercard" id={id}>
         <div className="usercard_top">
           <div className="text">{name}</div>
-          <div className="circle color_age"></div>
+          <div
+            className={`circle color_age ${
+              age >= 51
+                ? "bg_orange"
+                : age >= 26
+                ? "bg_purple"
+                : age >= 0
+                ? "bg_green"
+                : ""
+            }`}
+          ></div>
         </div>
         <div className="usercard_content">
           <div className="text_item">
