@@ -100,7 +100,7 @@ const Content = () => {
           </button>
         </div>
         <div className="users">
-          {users?.length &&
+          {users?.length ?
             users.map((userItem, userIndex) => (
               <UserCard
                 key={userItem.id}
@@ -109,7 +109,7 @@ const Content = () => {
                 viewUser={viewUser}
                 editUser={editUser}
               />
-            ))}
+            )) : ''}
         </div>
         {/* {paginationNumberArr?.length && (
           <div className="user_pagination">
