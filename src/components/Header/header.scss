@@ -1,0 +1,25 @@
+.header {
+  // border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background-color: rgba(30, 30, 30, 0.8784313725);
+  height: 70px;
+  width: 100%;
+
+  .header_text {
+    // font-family: Roboto;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  img.user_icon {
+    height: 30px;
+    object-fit: contain;
+  }
+}

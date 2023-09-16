@@ -1,0 +1,26 @@
+@import "./variables";
+
+.app {
+  position: relative;
+  
+}
+button {
+  cursor: pointer;
+}
+
+.bg_green {
+  background-color: $green;
+}
+
+.bg_purple {
+  background-color: $purple;
+}
+.bg_orange {
+  background-color: $orange;
+}
+.bg_reddish_orange{
+  background-color: $reddishOrange;
+}
+.bg_skyblue {
+  background-color: $skyblue;
+}
